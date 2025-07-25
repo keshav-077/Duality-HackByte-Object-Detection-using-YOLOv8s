@@ -1,76 +1,121 @@
-🚀 Duality-HackByte Object Detection using YOLOv8s
-This project presents an optimized lightweight object detection pipeline built using YOLOv8s on the HackByte Dataset. It leverages advanced augmentation, tuned training parameters, and visual comparison scripts to evaluate model performance.
+<h1>🚀 Duality-HackByte Object Detection using YOLOv8s</h1>
 
-1. Dataset Download
-Download and extract the official HackByte dataset from:
+<p>
+    This project presents an optimized lightweight object detection pipeline built using <strong>YOLOv8s</strong> on the HackByte Dataset.
+    It leverages advanced augmentation, tuned training parameters, and visual comparison scripts to evaluate model performance.
+</p>
 
-🔗 HackByte_Dataset.zip
+<h2>1️⃣ Dataset Download</h2>
+<p>
+    Download and extract the official HackByte dataset from:
+</p>
+<p>🔗 <strong>HackByte_Dataset.zip</strong></p>
+<p>After extraction, you will find folders like:</p>
+<ul>
+    <li><code>ENV_SETUP</code></li>
+</ul>
 
-After extraction, you will find folders like:
+<h2>2️⃣ Environment Setup</h2>
 
-ENV_SETUP
-2. Environment Setup
-For Windows Users:
-Install Anaconda (if not already installed).
-Open Anaconda Prompt.
-Navigate to the ENV_SETUP folder inside the dataset directory.
-Run:
-setup_env.bat
-This creates a Conda environment named EDU with all dependencies installed (YOLOv8, PyTorch, Albumentations, etc.).
+<h3>🪟 For Windows Users:</h3>
+<ol>
+    <li>Install Anaconda (if not already installed).</li>
+    <li>Open Anaconda Prompt.</li>
+    <li>Navigate to the <code>ENV_SETUP</code> folder inside the dataset directory.</li>
+    <li>Run:</li>
+</ol>
+<pre><code>setup_env.bat</code></pre>
+<p>This creates a Conda environment named <code>EDU</code> with all dependencies installed (YOLOv8, PyTorch, Albumentations, etc.).</p>
 
-🐧 For Mac/Linux Users:
-Create a script named setup_env.sh with equivalent installation commands from setup_env.bat and execute:
+<h3>🐧 For Mac/Linux Users:</h3>
+<p>Create a script named <code>setup_env.sh</code> with equivalent installation commands from <code>setup_env.bat</code> and execute:</p>
+<pre><code>bash setup_env.sh</code></pre>
+<p>Or install dependencies manually using:</p>
+<pre><code>pip install -r requirements.txt</code></pre>
 
-bash setup_env.sh
-Or install dependencies manually using:
+<h2>3️⃣ Model Training</h2>
+<p><strong>Steps to Train the YOLOv8s Model:</strong></p>
+<ol>
+    <li>Activate the <code>EDU</code> environment.</li>
+    <li>Navigate to the directory containing <code>new_train.py</code>.</li>
+    <li>Run:</li>
+</ol>
+<pre><code>python new_train.py</code></pre>
 
-pip install -r requirements.txt
-3. Model Training
-Steps to Train the YOLOv8s Model:
-Activate the EDU environment.
-Navigate to the directory containing new_train.py.
-Run:
-python new_train.py
-🔧 What This Does:
-Loads YOLOv8s with pretrained weights.
-Applies robust Albumentations-based augmentations.
-Uses AdamW, Cosine LR decay, and early stopping.
-Trains with custom augmentations and hyperparameters.
-Output:
-Final weights:
-training_output/watermark_boosted/weights/best.pt
-4. Prediction and Visual Comparison
-Run the Prediction Script:
-python new_predict.py
-This will:
+<h3>🔧 What This Does:</h3>
+<ul>
+    <li>Loads YOLOv8s with pretrained weights.</li>
+    <li>Applies robust Albumentations-based augmentations.</li>
+    <li>Uses AdamW, Cosine LR decay, and early stopping.</li>
+    <li>Trains with custom augmentations and hyperparameters.</li>
+</ul>
 
-Load both the base and optimized models.
-🖼️ Expected Output:
-Side-by-side visual comparison plots of how each model performs on the same test images — no confidence scores, just pure bounding box detection.
+<p><strong>Output:</strong></p>
+<p>Final weights:</p>
+<pre><code>training_output/watermark_boosted/weights/best.pt</code></pre>
 
-⚠️ Requirements (Manual Install)
-If you aren’t using the .bat or .sh scripts, install dependencies manually:
+<h2>4️⃣ Prediction and Visual Comparison</h2>
+<p><strong>Run the Prediction Script:</strong></p>
+<pre><code>python new_predict.py</code></pre>
 
-pip install ultralytics>=8.0.168
-pip install albumentations opencv-python matplotlib
-Ensure:
+<p>This will:</p>
+<ul>
+    <li>Load both the base and optimized models.</li>
+</ul>
 
-Python ≥ 3.10
-PyTorch ≥ 2.0
-CUDA-compatible GPU (optional but recommended)
-📈 How to Reproduce Final Results
-Download and extract dataset.
-Set up the environment using setup_env.bat or setup_env.sh.
-Run training:
-python new_train.py
-Run predictions:
-python new_predict.py
-Check visual results in comparisons/visual_comparisons.
-📊 Results Summary
-Model	Training mAP	Valid mAP	Remarks
-Base YOLOv8s	~91.3%	~83%	Strong baseline
-Optimized	~95%	~90.7%	Faster, more robust visuals
-📬 Final Thoughts
-The optimized YOLOv8s model balances speed, accuracy, and simplicity.
-Visual comparison helped validate that predictions were qualitatively stronger even when mAPs were similar.
-The pipeline is easy to reproduce, lightweight, and customizable for other detection tasks.
+<p>🖼️ <strong>Expected Output:</strong></p>
+<p>Side-by-side visual comparison plots of how each model performs on the same test images — no confidence scores, just pure bounding box detection.</p>
+
+<h2>⚠️ Requirements (Manual Install)</h2>
+<p>If you aren’t using the <code>.bat</code> or <code>.sh</code> scripts, install dependencies manually:</p>
+<pre><code>pip install ultralytics>=8.0.168
+pip install albumentations opencv-python matplotlib</code></pre>
+
+<p><strong>Ensure:</strong></p>
+<ul>
+    <li>Python ≥ 3.10</li>
+    <li>PyTorch ≥ 2.0</li>
+    <li>CUDA-compatible GPU (optional but recommended)</li>
+</ul>
+
+<h2>📈 How to Reproduce Final Results</h2>
+<ol>
+    <li>Download and extract dataset.</li>
+    <li>Set up the environment using <code>setup_env.bat</code> or <code>setup_env.sh</code>.</li>
+    <li>Run training:</li>
+</ol>
+<pre><code>python new_train.py</code></pre>
+<ol start="4">
+    <li>Run predictions:</li>
+</ol>
+<pre><code>python new_predict.py</code></pre>
+<p>Check visual results in <code>comparisons/visual_comparisons</code>.</p>
+
+<h2>📊 Results Summary</h2>
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Model</th>
+        <th>Training mAP</th>
+        <th>Valid mAP</th>
+        <th>Remarks</th>
+    </tr>
+    <tr>
+        <td>Base YOLOv8s</td>
+        <td>~91.3%</td>
+        <td>~83%</td>
+        <td>Strong baseline</td>
+    </tr>
+    <tr>
+        <td>Optimized</td>
+        <td>~95%</td>
+        <td>~90.7%</td>
+        <td>Faster, more robust visuals</td>
+    </tr>
+</table>
+
+<h2>📬 Final Thoughts</h2>
+<p>
+    The optimized YOLOv8s model balances speed, accuracy, and simplicity.
+    Visual comparison helped validate that predictions were qualitatively stronger even when mAPs were similar.
+    The pipeline is easy to reproduce, lightweight, and customizable for other detection tasks.
+</p>
