@@ -1,4 +1,4 @@
-<h1>🚀 Object Detection in Simulated Space stations-main</h1>
+<h1>🚀 Object Detection in Simulated Space stations</h1>
 
 <p>
     This project presents an optimized lightweight object detection pipeline built using <strong>YOLOv8s</strong> on the HackByte Dataset.
