@@ -113,6 +113,14 @@ pip install albumentations opencv-python matplotlib</code></pre>
     </tr>
 </table>
 
+<h2>🔍 Object Detection: Before vs After Optimization</h2>
+<p><strong>Before Optimization:</strong> Some small/angled objects were missed or incorrectly labeled.</p>
+<p><strong>After Optimization:</strong> Improved localization and labeling even under varied lighting or partial occlusion.</p>
+<img src="Screenshot%202025-07-25%20134459.png" alt="Before and After Optimization Comparison" style="max-width: 100%; border: 1px solid #ccc; border-radius: 6px; margin-top: 10px;">
+
+<p style="text-align: center; font-style: italic;">Fig: Comparison of object detection before and after optimization</p>
+
+
 <h2>📬 Final Thoughts</h2>
 <p>
     The optimized YOLOv8s model balances speed, accuracy, and simplicity.
